@@ -139,22 +139,57 @@
             document.getElementById('modalPedido').classList.remove('flex');
         }
 
-        function enviarPedido(e) {
-            e.preventDefault();
-            const nome = document.getElementById('nome').value;
-            const telefone = document.getElementById('telefone').value;
-            const pagamento = document.getElementById('pagamento').value;
-            const endereco = document.getElementById('endereco').value;
+        async function enviarPedido(e) {
+    e.preventDefault();
+    
+    // Captura os dados preenchidos pelo cliente
+    const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
+    const pagamento = document.getElementById('pagamento').value;
+    const endereco = document.getElementById('endereco').value;
 
-            // Monta a mensagem formatada para WhatsApp (simulando salvamento e contato direto seguro)
-            const texto = `Olá! Tenho interesse na gema: *${produtoSelecionado}* (${precoSelecionado}).\n\n*Dados do Cliente:*\nNome: ${nome}\nTelefone: ${telefone}\nPagamento: ${pagamento}\nEndereço: ${endereco}`;
+    // Objeto com os dados estruturados no formato JSON
+    const dadosCliente = {
+        data: [{
+            "Nome": nome,
+            "Telefone": telefone,
+            "Pedra": produtoSelecionado + " (" + precoSelecionado + ")",
+            "Pagamento": pagamento,
+            "Endereco": endereco
+        }]
+    };
+
+    try {
+        // Envia os dados automaticamente para a planilha do Google via API
+        const resposta = await fetch('SUA_URL_DO_SHEETDB_AQUI', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dadosCliente)
+        });
+
+        if (resposta.ok) {
+            alert('Pedido registrado com sucesso!');
             
-            const url = `https://wa.me/5583999999999?text=${encodeURIComponent(texto)}`;
-            
-            // Redireciona para o WhatsApp oficial com todos os dados preenchidos
-            window.open(url, '_blank');
+            // Opcional: Abre o WhatsApp para o cliente confirmar o pedido com o vendedor
+            const texto = `Olá! Acabei de demonstrar interesse na gema: *${produtoSelecionado}* (${precoSelecionado}). Meu nome é ${nome}.`;
+            const urlWpp = `https://wa.me/5583999999999?text=${encodeURIComponent(texto)}`;
+            window.open(urlWpp, '_blank');
+
             fecharModal();
+            document.getElementById('formCheckout').reset();
+        } else {
+            alert('Erro ao salvar o pedido. Tente novamente.');
         }
+    } catch (erro) {
+        console.error('Erro de conexão:', erro);
+        alert('Erro ao conectar com o servidor.');
+    }
+}
+        
+        
     </script>
 </body>
 </html>
