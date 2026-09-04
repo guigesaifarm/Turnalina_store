@@ -161,7 +161,7 @@
 
     try {
         // Envia os dados automaticamente para a planilha do Google via API
-        const resposta = await fetch('SUA_URL_DO_SHEETDB_AQUI', {
+        const resposta = await fetch('https://sheetdb.io/api/v1/rmcca52bbyxib', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -175,7 +175,7 @@
             
             // Opcional: Abre o WhatsApp para o cliente confirmar o pedido com o vendedor
             const texto = `Olá! Acabei de demonstrar interesse na gema: *${produtoSelecionado}* (${precoSelecionado}). Meu nome é ${nome}.`;
-            const urlWpp = `https://wa.me/5583999999999?text=${encodeURIComponent(texto)}`;
+            const urlWpp = `https://wa.me/5583996018715?text=${encodeURIComponent(texto)}`;
             window.open(urlWpp, '_blank');
 
             fecharModal();
