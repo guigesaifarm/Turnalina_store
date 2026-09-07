@@ -27,77 +27,219 @@
 </head>
 <body class="bg-slate-950 text-slate-100 overflow-x-hidden">
 
-    <!-- Canvas de Partículas Dinâmicas (Efeito Joias / Brilho Neon) -->
+    <!-- Canvas de Partículas Dinâmicas -->
     <canvas id="canvas-particles"></canvas>
 
-    <!-- Header com Logotipo -->
-    <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <img src="queenminas.png" alt="Queen Minas Logo" class="h-20 w-auto object-contain">
-                <h1 class="font-luxury text-4xl tracking-widest text-cyan-400">PARAÍBA GEMS</h1>
+    <!-- Header Fixo Ajustado com Botão do Carrinho -->
+    <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur fixed top-0 left-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 h-32 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="queenminas.png" alt="Queen Minas Logo" class="h-28 w-auto object-contain">
+                <h1 class="font-luxury text-5xl tracking-widest text-cyan-400">PARAÍBA GEMS</h1>
             </div>
-            <a href="https://wa.me/5583996018715" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg shadow-emerald-900/40 transition-all">
-                <i class="fab fa-whatsapp"></i> (83) 99601-8715
-            </a>
+            <div class="flex items-center gap-4">
+                <button onclick="abrirModalCarrinho()" class="relative bg-slate-900 border border-slate-800 hover:border-cyan-500 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 transition-all shadow-lg">
+                    <i class="fas fa-shopping-cart"></i> Carrinho
+                    <span id="contadorCarrinho" class="bg-cyan-500 text-slate-950 text-xs px-2 py-0.5 rounded-full font-bold">0</span>
+                </button>
+                <a href="https://wa.me/5583996018715" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg shadow-emerald-900/40 transition-all">
+                    <i class="fab fa-whatsapp"></i> (83) 99601-8715
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="pt-32 pb-16 text-center max-w-4xl mx-auto px-4">
+    <!-- Hero Section -->
+    <section class="pt-40 pb-16 text-center max-w-4xl mx-auto px-4">
         <span class="text-cyan-400 text-xs tracking-widest uppercase font-semibold">Exclusividade Mundial</span>
         <h2 class="font-luxury text-4xl md:text-6xl font-bold mt-2 mb-4">Turmalina Paraíba</h2>
         <p class="text-slate-400 max-w-xl mx-auto">As gemas mais cobiçadas do planeta com o característico tom azul-neon elétrico. Certificadas e originais.</p>
     </section>
 
-    <!-- Produtos / Vitrine -->
+    <!-- Produtos / Vitrine (8 Opções Padronizadas) -->
     <main class="max-w-7xl mx-auto px-4 pb-24">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <!-- Card de Exemplo 1 -->
+            <!-- Card 1 -->
             <div class="bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-cyan-500/50 transition-all duration-300">
                 <div>
-                    <img src="Turmalina.jpeg" alt="Turmalina Paraíba" class="h-64 w-full object-cover">
+                    <img src="turmalina7.jpg" alt="Par Turmalina Neon Oval" class="h-64 w-full object-cover">
                     <div class="p-6">
                         <span class="text-xs bg-cyan-950 text-cyan-400 px-3 py-1 rounded-full border border-cyan-800">Disponível</span>
-                        <h3 class="font-luxury text-xl font-bold mt-3 text-white">Turmalina Neon Cushion</h3>
-                        <p class="text-2xl font-bold text-cyan-400 mt-2">R$ 45.000,00</p>
-                        
+                        <h3 class="font-luxury text-xl font-bold mt-3 text-white">Par Turmalina Neon Oval</h3>
+                        <p class="text-2xl font-bold text-cyan-400 mt-2">R$ 8.700,00</p>
                         <ul class="mt-4 space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4">
-                            <li><strong class="text-slate-400">Quilates (cts):</strong> 2.45 ct</li>
-                            <li><strong class="text-slate-400">Cor:</strong> Azul Neon Intenso</li>
+                            <li><strong class="text-slate-400">Quilates (cts):</strong> 1.36 ct</li>
+                            <li><strong class="text-slate-400">Cor:</strong> Azul Neon</li>
                             <li><strong class="text-slate-400">Lapidação:</strong> Cushion</li>
                             <li><strong class="text-slate-400">Origem:</strong> Paraíba, Brasil</li>
                         </ul>
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="abrirModal('Turmalina Neon Cushion - 2.45cts', 'R$ 45.000,00')" class="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-3 rounded-xl transition-colors shadow-lg shadow-cyan-950">
-                        Demonstrar Interesse / Comprar
+                    <button onclick="adicionarAoCarrinho('Par Turmalina Neon Oval', 8700)" class="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-3 rounded-xl transition-colors shadow-lg shadow-cyan-950 flex items-center justify-center gap-2">
+                        <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
                     </button>
                 </div>
             </div>
 
-            <!-- Card de Exemplo 2 -->
+            <!-- Card 2 -->
             <div class="bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-cyan-500/50 transition-all duration-300">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80" alt="Turmalina Paraíba" class="h-64 w-full object-cover">
+                    <img src="turmalina8..jpg" alt="Turmalina Paraíba Oval" class="h-64 w-full object-cover">
                     <div class="p-6">
                         <span class="text-xs bg-cyan-950 text-cyan-400 px-3 py-1 rounded-full border border-cyan-800">Disponível</span>
                         <h3 class="font-luxury text-xl font-bold mt-3 text-white">Turmalina Paraíba Oval</h3>
-                        <p class="text-2xl font-bold text-cyan-400 mt-2">R$ 82.000,00</p>
-                        
+                        <p class="text-2xl font-bold text-cyan-400 mt-2">R$ 5.800,00</p>
                         <ul class="mt-4 space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4">
-                            <li><strong class="text-slate-400">Quilates (cts):</strong> 3.80 ct</li>
-                            <li><strong class="text-slate-400">Cor:</strong> Azul Turquesa Vívido</li>
+                            <li><strong class="text-slate-400">Quilates (cts):</strong> 1.48 ct</li>
+                            <li><strong class="text-slate-400">Cor:</strong> Verde Neon Intenso</li>
                             <li><strong class="text-slate-400">Lapidação:</strong> Oval</li>
                             <li><strong class="text-slate-400">Origem:</strong> Paraíba, Brasil</li>
                         </ul>
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <button onclick="abrirModal('Turmalina Paraíba Oval - 3.80cts', 'R$ 82.000,00')" class="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-3 rounded-xl transition-colors shadow-lg shadow-cyan-950">
-                        Demonstrar Interesse / Comprar
+                    <button onclick="adicionarAoCarrinho('Turmalina Paraíba Oval', 5800)" class="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-3 rounded-xl transition-colors shadow-lg shadow-cyan-950 flex items-center justify-center gap-2">
+                        <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-cyan-500/50 transition-all duration-300">
+                <div>
+                    <img src="turmalina1.jpg" alt="Turmalina Paraíba Verde Gota" class="h-64 w-full object-cover">
+                    <div class="p-6">
+                        <span class="text-xs bg-cyan-950 text-cyan-400 px-3 py-1 rounded-full border border-cyan-800">Disponível</span>
+                        <h3 class="font-luxury text-xl font-bold mt-3 text-white">Turmalina Paraíba Verde Gota</h3>
+                        <p class="text-2xl font-bold text-cyan-400 mt-2">R$ 8.000,00</p>
+                        <ul class="mt-4 space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4">
+                            <li><strong class="text-slate-400">Quilates (cts):</strong> 2.05 ct</li>
+                            <li><strong class="text-slate-400">Cor:</strong> Verde</li>
+                            <li><strong class="text-slate-400">Lapidação:</strong> Gota</li>
+                            <li><strong class="text-slate-400">Origem:</strong> Paraíba, Brasil</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="adicionarAoCarrinho('Turmalina Paraíba Verde Gota', 8000)" class="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-3 rounded-xl transition-colors shadow-lg shadow-cyan-950 flex items-center justify-center gap-2">
+                        <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-cyan-500/50 transition-all duration-300">
+                <div>
+                    <img src="turmalina2.jpg" alt="Turmalina Paraíba Verde Neon Oval" class="h-64 w-full object-cover">
+                    <div class="p-6">
+                        <span class="text-xs bg-cyan-950 text-cyan-400 px-3 py-1 rounded-full border border-cyan-800">Disponível</span>
+                        <h3 class="font-luxury text-xl font-bold mt-3 text-white">Turmalina Paraíba Verde Neon Oval</h3>
+                        <p class="text-2xl font-bold text-cyan-400 mt-2">R$ 11.600,00</p>
+                        <ul class="mt-4 space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4">
+                            <li><strong class="text-slate-400">Quilates (cts):</strong> 1.34 ct</li>
+                            <li><strong class="text-slate-400">Cor:</strong> Verde Azulado</li>
+                            <li><strong class="text-slate-400">Lapidação:</strong> Cushion</li>
+                            <li><strong class="text-slate-400">Origem:</strong> Paraíba, Brasil</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="adicionarAoCarrinho('Turmalina Paraíba Verde Neon Oval', 11600)" class="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-3 rounded-xl transition-colors shadow-lg shadow-cyan-950 flex items-center justify-center gap-2">
+                        <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-cyan-500/50 transition-all duration-300">
+                <div>
+                    <img src="turmalina3.jpg" alt="Turmalina Paraíba Neon Oval" class="h-64 w-full object-cover">
+                    <div class="p-6">
+                        <span class="text-xs bg-cyan-950 text-cyan-400 px-3 py-1 rounded-full border border-cyan-800">Disponível</span>
+                        <h3 class="font-luxury text-xl font-bold mt-3 text-white">Turmalina Paraíba Neon Oval</h3>
+                        <p class="text-2xl font-bold text-cyan-400 mt-2">R$ 5.800,00</p>
+                        <ul class="mt-4 space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4">
+                            <li><strong class="text-slate-400">Quilates (cts):</strong> 1.37 ct</li>
+                            <li><strong class="text-slate-400">Cor:</strong> Verde Azulada Neon</li>
+                            <li><strong class="text-slate-400">Lapidação:</strong> Cushion</li>
+                            <li><strong class="text-slate-400">Origem:</strong> Paraíba, Brasil</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="adicionarAoCarrinho('Turmalina Paraíba Neon Oval (Card 5)', 5800)" class="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-3 rounded-xl transition-colors shadow-lg shadow-cyan-950 flex items-center justify-center gap-2">
+                        <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-cyan-500/50 transition-all duration-300">
+                <div>
+                    <img src="turmalina4.jpg" alt="Turmalina Paraíba Neon Oval Par" class="h-64 w-full object-cover">
+                    <div class="p-6">
+                        <span class="text-xs bg-cyan-950 text-cyan-400 px-3 py-1 rounded-full border border-cyan-800">Disponível</span>
+                        <h3 class="font-luxury text-xl font-bold mt-3 text-white">Turmalina Paraíba Neon Oval Par</h3>
+                        <p class="text-2xl font-bold text-cyan-400 mt-2">R$ 24.950,00</p>
+                        <ul class="mt-4 space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4">
+                            <li><strong class="text-slate-400">Quilates (cts):</strong> 1.60 ct</li>
+                            <li><strong class="text-slate-400">Cor:</strong> Azul Neon</li>
+                            <li><strong class="text-slate-400">Lapidação:</strong> Cushion</li>
+                            <li><strong class="text-slate-400">Origem:</strong> Paraíba, Brasil</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="adicionarAoCarrinho('Turmalina Paraíba Neon Oval Par', 24950)" class="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-3 rounded-xl transition-colors shadow-lg shadow-cyan-950 flex items-center justify-center gap-2">
+                        <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-cyan-500/50 transition-all duration-300">
+                <div>
+                    <img src="turmalina5.jpg" alt="Turmalina Paraíba Greenish Coração" class="h-64 w-full object-cover">
+                    <div class="p-6">
+                        <span class="text-xs bg-cyan-950 text-cyan-400 px-3 py-1 rounded-full border border-cyan-800">Disponível</span>
+                        <h3 class="font-luxury text-xl font-bold mt-3 text-white">Turmalina Paraíba Greenish Coração</h3>
+                        <p class="text-2xl font-bold text-cyan-400 mt-2">R$ 4.300,00</p>
+                        <ul class="mt-4 space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4">
+                            <li><strong class="text-slate-400">Quilates (cts):</strong> 0.93 ct</li>
+                            <li><strong class="text-slate-400">Cor:</strong> Verde Azulado Neon</li>
+                            <li><strong class="text-slate-400">Lapidação:</strong> Cushion</li>
+                            <li><strong class="text-slate-400">Origem:</strong> Paraíba, Brasil</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="adicionarAoCarrinho('Turmalina Paraíba Greenish Coração', 4300)" class="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-3 rounded-xl transition-colors shadow-lg shadow-cyan-950 flex items-center justify-center gap-2">
+                        <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between hover:border-cyan-500/50 transition-all duration-300">
+                <div>
+                    <img src="turmalina6.jpg" alt="Turmalina Paraíba Azul Neon Gota" class="h-64 w-full object-cover">
+                    <div class="p-6">
+                        <span class="text-xs bg-cyan-950 text-cyan-400 px-3 py-1 rounded-full border border-cyan-800">Disponível</span>
+                        <h3 class="font-luxury text-xl font-bold mt-3 text-white">Turmalina Paraíba Azul Neon Gota</h3>
+                        <p class="text-2xl font-bold text-cyan-400 mt-2">R$ 7.350,00</p>
+                        <ul class="mt-4 space-y-2 text-sm text-slate-300 border-t border-slate-800 pt-4">
+                            <li><strong class="text-slate-400">Quilates (cts):</strong> 0.75 ct</li>
+                            <li><strong class="text-slate-400">Cor:</strong> Azul Neon</li>
+                            <li><strong class="text-slate-400">Lapidação:</strong> Cushion</li>
+                            <li><strong class="text-slate-400">Origem:</strong> Paraíba, Brasil</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="adicionarAoCarrinho('Turmalina Paraíba Azul Neon Gota', 7350)" class="w-full bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold py-3 rounded-xl transition-colors shadow-lg shadow-cyan-950 flex items-center justify-center gap-2">
+                        <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
                     </button>
                 </div>
             </div>
@@ -105,12 +247,21 @@
         </div>
     </main>
 
-    <!-- Modal de Captura de Dados (Pedido) -->
-    <div id="modalPedido" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
-        <div class="bg-slate-900 border border-slate-800 max-w-md w-full p-6 rounded-2xl relative shadow-2xl">
-            <button onclick="fecharModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fas fa-times"></i></button>
-            <h3 class="font-luxury text-xl font-bold mb-1">Finalizar Interesse</h3>
-            <p id="infoProduto" class="text-xs text-cyan-400 mb-4 font-semibold"></p>
+    <!-- Modal do Carrinho / Finalização -->
+    <div id="modalPedido" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4 overflow-y-auto">
+        <div class="bg-slate-900 border border-slate-800 max-w-lg w-full p-6 rounded-2xl relative shadow-2xl my-8">
+            <button onclick="fecharModalCarrinho()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fas fa-times"></i></button>
+            <h3 class="font-luxury text-2xl font-bold mb-4 text-cyan-400">Seu Pacote de Gemas</h3>
+            
+            <!-- Lista de Itens no Carrinho -->
+            <div id="listaCarrinho" class="space-y-3 max-h-48 overflow-y-auto pr-2 mb-4 border-b border-slate-800 pb-4">
+                <p class="text-slate-400 text-sm italic">Seu carrinho está vazio.</p>
+            </div>
+
+            <div class="flex justify-between items-center mb-6 text-lg font-bold">
+                <span>Total do Pacote:</span>
+                <span id="valorTotalGeral" class="text-cyan-400">R$ 0,00</span>
+            </div>
 
             <form id="formCheckout" onsubmit="enviarPedido(event)" class="space-y-4">
                 <div>
@@ -129,16 +280,17 @@
                     <label class="block text-xs uppercase text-slate-400 mb-1 font-semibold">Forma de Pagamento</label>
                     <select id="pagamento" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500">
                         <option value="Pix">Pix (Com desconto)</option>
-                        <option value="Cartao">Cartão de Crédito</option>
-                        <option value="Vista">À Vista (TED/Espécie)</option>
+                        <option value="Cartao de Credito Parcelado">Cartão de Crédito Parcelado</option>
+                        <option value="Cartao de Debito">Cartão de Débito</option>
+                        <option value="TED/Especie (A Vista)">TED / Espécie (À Vista)</option>
                     </select>
                 </div>
                 <div>
                     <label class="block text-xs uppercase text-slate-400 mb-1 font-semibold">Endereço de Entrega</label>
                     <textarea id="endereco" rows="2" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition-colors">
-                    Enviar Pedido via WhatsApp / Salvar
+                <button type="submit" id="btnFinalizar" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition-colors shadow-lg hidden">
+                    Finalizar Pedido via WhatsApp / Salvar
                 </button>
             </form>
         </div>
@@ -146,7 +298,6 @@
 
     <!-- Script JS e Efeito Canvas Dinâmico -->
     <script>
-        // Efeito Canvas Dinâmico (Gem Glow / Partículas de Luxo)
         const canvas = document.getElementById('canvas-particles');
         const ctx = canvas.getContext('2d');
 
@@ -165,7 +316,7 @@
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
                 radius: Math.random() * 2.5 + 0.5,
-                color: Math.random() > 0.5 ? 'rgba(6, 182, 212, ' : 'rgba(52, 211, 153, ', // Tons ciano e esmeralda
+                color: Math.random() > 0.5 ? 'rgba(6, 182, 212, ' : 'rgba(52, 211, 153, ',
                 alpha: Math.random() * 0.5 + 0.2,
                 vx: (Math.random() - 0.5) * 0.4,
                 vy: (Math.random() - 0.5) * 0.4,
@@ -185,7 +336,6 @@
                 if (p.y < 0) p.y = canvas.height;
                 if (p.y > canvas.height) p.y = 0;
 
-                // Efeito de brilho pulsante leve
                 p.alpha += Math.sin(Date.now() * p.pulse) * 0.005;
                 if (p.alpha < 0.1) p.alpha = 0.1;
                 if (p.alpha > 0.7) p.alpha = 0.7;
@@ -202,19 +352,77 @@
         }
         animateParticles();
 
-        // Funções da Página
-        let produtoSelecionado = "";
-        let precoSelecionado = "";
+        // Sistema de Carrinho
+        let carrinho = [];
 
-        function abrirModal(produto, preco) {
-            produtoSelecionado = produto;
-            precoSelecionado = preco;
-            document.getElementById('infoProduto').innerText = `${produto} - ${preco}`;
+        function adicionarAoCarrinho(nome, preco) {
+            const itemExistente = carrinho.find(item => item.nome === nome);
+            if (itemExistente) {
+                itemExistente.qtd += 1;
+            } else {
+                carrinho.push({ nome, preco, qtd: 1 });
+            }
+            atualizarCarrinhoUI();
+            abrirModalCarrinho();
+        }
+
+        function alterarQtd(nome, delta) {
+            const item = carrinho.find(i => i.nome === nome);
+            if (item) {
+                item.qtd += delta;
+                if (item.qtd <= 0) {
+                    carrinho = carrinho.filter(i => i.nome !== nome);
+                }
+            }
+            atualizarCarrinhoUI();
+        }
+
+        function atualizarCarrinhoUI() {
+            const lista = document.getElementById('listaCarrinho');
+            const contador = document.getElementById('contadorCarrinho');
+            const totalGeralEl = document.getElementById('valorTotalGeral');
+            const btnFinalizar = document.getElementById('btnFinalizar');
+
+            let totalItens = 0;
+            let totalGeral = 0;
+
+            if (carrinho.length === 0) {
+                lista.innerHTML = `<p class="text-slate-400 text-sm italic">Seu carrinho está vazio.</p>`;
+                btnFinalizar.classList.add('hidden');
+            } else {
+                lista.innerHTML = '';
+                btnFinalizar.classList.remove('hidden');
+                carrinho.forEach(item => {
+                    totalItens += item.qtd;
+                    const subtotal = item.preco * item.qtd;
+                    totalGeral += subtotal;
+
+                    lista.innerHTML += `
+                        <div class="flex justify-between items-center bg-slate-950 p-3 rounded-xl border border-slate-800">
+                            <div>
+                                <h4 class="text-sm font-semibold text-white">${item.nome}</h4>
+                                <p class="text-xs text-cyan-400">Unit: R$ ${item.preco.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button type="button" onclick="alterarQtd('${item.nome}', -1)" class="w-7 h-7 bg-slate-800 rounded-lg text-white hover:bg-slate-700 flex items-center justify-center"><i class="fas fa-minus text-xs"></i></button>
+                                <span class="text-sm font-bold">${item.qtd}</span>
+                                <button type="button" onclick="alterarQtd('${item.nome}', 1)" class="w-7 h-7 bg-slate-800 rounded-lg text-white hover:bg-slate-700 flex items-center justify-center"><i class="fas fa-plus text-xs"></i></button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            contador.innerText = totalItens;
+            totalGeralEl.innerText = `R$ ${totalGeral.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+        }
+
+        function abrirModalCarrinho() {
             document.getElementById('modalPedido').classList.remove('hidden');
             document.getElementById('modalPedido').classList.add('flex');
         }
 
-        function fecharModal() {
+        function fecharModalCarrinho() {
             document.getElementById('modalPedido').classList.add('hidden');
             document.getElementById('modalPedido').classList.remove('flex');
         }
@@ -222,20 +430,31 @@
         async function enviarPedido(e) {
             e.preventDefault();
             
+            if (carrinho.length === 0) {
+                alert('Adicione pelo menos uma gema ao carrinho.');
+                return;
+            }
+
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const telefone = document.getElementById('telefone').value;
             const pagamento = document.getElementById('pagamento').value;
             const endereco = document.getElementById('endereco').value;
 
+            // Montar string resumida do pacote de pedras e valor total
+            let resumoPedras = carrinho.map(i => `${i.qtd}x ${i.nome}`).join(' | ');
+            let totalGeral = carrinho.reduce((acc, i) => acc + (i.preco * i.qtd), 0);
+            let valorFormatado = `R$ ${totalGeral.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+
             const dadosCliente = {
                 data: [{
                     "Nome": nome,
                     "E-mail": email,
                     "Telefone": telefone,
-                    "Pedra": produtoSelecionado + " (" + precoSelecionado + ")",
+                    "Pedra": resumoPedras,
                     "Pagamento": pagamento,
-                    "Endereco": endereco
+                    "Endereco": endereco,
+                    "ValorTotal": valorFormatado
                 }]
             };
 
@@ -252,14 +471,16 @@
                 if (resposta.ok) {
                     alert('Pedido registrado com sucesso!');
                     
-                    const texto = `Olá! Acabei de demonstrar interesse na gema: *${produtoSelecionado}* (${precoSelecionado}). Meu nome é ${nome}.`;
+                    const texto = `Olá! Gostaria de fechar o seguinte pacote de gemas:\n\n*Itens:* ${resumoPedras}\n*Valor Total:* ${valorFormatado}\n*Forma de Pagamento:* ${pagamento}\n\nMeu nome é ${nome} (${email}).`;
                     const urlWpp = `https://wa.me/5583996018715?text=${encodeURIComponent(texto)}`;
                     window.open(urlWpp, '_blank');
 
-                    fecharModal();
+                    carrinho = [];
+                    atualizarCarrinhoUI();
+                    fecharModalCarrinho();
                     document.getElementById('formCheckout').reset();
                 } else {
-                    alert('Erro ao salvar o pedido. Tente novamente.');
+                    alert('Erro ao salvar o pedido na planilha. Tente novamente.');
                 }
             } catch (erro) {
                 console.error('Erro de conexão:', erro);
